@@ -10,7 +10,7 @@ buildscript {
     }
 }
 
-plugins{
+plugins {
     id 'java'
 }
 
@@ -31,7 +31,11 @@ repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
     implementation 'org.elasticsearch:elasticsearch:8.14.3'
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
 }
