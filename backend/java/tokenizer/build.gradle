@@ -1,0 +1,37 @@
+buildscript {
+    ext.pluginApiVersion = '8.14.3'
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.elasticsearch.gradle:build-tools:${pluginApiVersion}"
+    }
+}
+
+plugins{
+    id 'java'
+}
+
+apply plugin: 'elasticsearch.esplugin'
+
+
+esplugin {
+    name 'korean-tokenizer'
+    description 'An example plugin showing how to write and register a custom suggester'
+    classname 'com.example.tokenizer.HangulTokenizerPlugin'
+}
+
+group 'com.example.tokenizer'
+version '1.0'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.elasticsearch:elasticsearch:8.14.3'
+    testImplementation 'junit:junit:4.13.2'
+}
